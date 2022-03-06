@@ -1,0 +1,420 @@
+{
+  "clients": [
+    {
+      "id": 1,
+      "clientname": "Apple"
+    },
+    {
+      "id": 2,
+      "clientname": "JBL"
+    },
+    {
+      "id": 3,
+      "clientname": "1Rivet"
+    }
+  ],
+  "offices": [
+    {
+      "id": 1,
+      "officename": "Office1"
+    },
+    {
+      "id": 2,
+      "officename": "Office2"
+    },
+    {
+      "id": 3,
+      "officename": "Office3"
+    },
+    {
+      "id": 4,
+      "officename": "Office4"
+    },
+    {
+      "id": 5,
+      "officename": "Office5"
+    }
+  ],
+  "users": [
+    {
+      "fname": "adada",
+      "lname": "swswsw",
+      "email": "sdfdf@gmai.com",
+      "contact": "2342424242",
+      "clients": "JBL",
+      "offices": "Office2",
+      "id": 2
+    },
+    {
+      "fname": "adada",
+      "lname": "swswsw",
+      "email": "sdfdf@gmai.com",
+      "contact": "2342424242",
+      "clients": "JBL",
+      "offices": "Office4",
+      "id": 3
+    },
+    {
+      "fname": "eminem",
+      "lname": "swswsw",
+      "email": "sdfdf@gmai.com",
+      "contact": "2342424242",
+      "clients": "JBL",
+      "offices": "Office2",
+      "id": 4
+    },
+    {
+      "fname": "mehul",
+      "lname": "patel",
+      "email": "sdfdf@gmai.com",
+      "contact": "2342424242",
+      "clients": "JBL",
+      "offices": "Office2",
+      "id": 6
+    },
+    {
+      "fname": "mehul",
+      "lname": "patel",
+      "email": "jkjjjk@kfjkj.com",
+      "contact": "9999999999",
+      "clients": "Apple",
+      "offices": "Office4",
+      "id": 7
+    },
+    {
+      "fname": "bruce",
+      "lname": "lee",
+      "email": "bruce@lee.org",
+      "contact": "9999999990",
+      "clients": "1Rivet",
+      "offices": "Office5",
+      "id": 8
+    },
+    {
+      "fname": "john",
+      "lname": "wick",
+      "email": "john@wick.org",
+      "contact": "9990009999",
+      "clients": "Apple",
+      "offices": "Office3",
+      "id": 9
+    },
+    {
+      "fname": "mehul",
+      "lname": "patel",
+      "email": "hhhhh@vvgvgv.com",
+      "contact": "0099990000",
+      "clients": "1Rivet",
+      "offices": "Office5",
+      "id": 10
+    },
+    {
+      "fname": "mihir",
+      "lname": "patel",
+      "email": "mihir@gmail.com",
+      "contact": "111222333",
+      "clients": "JBL",
+      "offices": "Office2",
+      "id": 11
+    }
+  ],
+  "resumePost": [
+    {
+      "userdetails": {
+        "name": "mehul",
+        "designation": "engineer",
+        "email": "mail@mail.org",
+        "phone": "999999999"
+      },
+      "skills": [
+        {
+          "skills": "you name it"
+        },
+        {
+          "skills": "ammunation"
+        },
+        {
+          "skills": "guitar"
+        },
+        {
+          "skills": "violin"
+        }
+      ],
+      "experience": [
+        {
+          "place": "Apple",
+          "designation": "Software Engineer",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum animi voluptatem ad cupiditate sunt laboriosam quisquam ipsam dolore doloremque quia, sed architecto, veritatis, rerum fugit. Quos culpa a odio magnam!",
+          "year": "2000-2001"
+        },
+        {
+          "place": "Gooogle",
+          "designation": "Data Mechanic",
+          "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum animi voluptatem ad cupiditate sunt laboriosam quisquam ipsam dolore doloremque quia, sed architecto, veritatis, rerum fugit. Quos culpa a odio magnam!",
+          "year": "2000-2001"
+        }
+      ],
+      "education": [
+        {
+          "school": "MIT",
+          "degree": "Master",
+          "score": "100%"
+        },
+        {
+          "school": "MSU",
+          "degree": "B.Tech",
+          "score": "100%"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "userdetails": {
+        "name": "Ajay Ghale",
+        "designation": "Soldier",
+        "email": "ajayghale@fbi.org",
+        "phone": "8460849046"
+      },
+      "skills": [
+        {
+          "skills": "ammunation"
+        },
+        {
+          "skills": "ammunation"
+        },
+        {
+          "skills": "ammunation"
+        },
+        {
+          "skills": "ammunation"
+        },
+        {
+          "skills": "hallucination"
+        },
+        {
+          "skills": "Drugs"
+        },
+        {
+          "skills": "hallucination"
+        }
+      ],
+      "experience": [
+        {
+          "place": "Gun Fights",
+          "designation": "assasin",
+          "description": "used to work",
+          "year": "1999"
+        },
+        {
+          "place": "Kyrat",
+          "designation": "assasin",
+          "description": "used to work",
+          "year": "2000"
+        }
+      ],
+      "education": [
+        {
+          "school": "mit",
+          "degree": "CSE",
+          "score": "100%"
+        }
+      ],
+      "id": 16
+    },
+    {
+      "userdetails": {
+        "name": "",
+        "designation": "",
+        "email": "",
+        "phone": ""
+      },
+      "skills": [
+        {
+          "skills": ""
+        }
+      ],
+      "experience": [
+        {
+          "place": "",
+          "designation": "",
+          "description": "",
+          "year": ""
+        }
+      ],
+      "education": [
+        {
+          "school": "",
+          "degree": "",
+          "score": ""
+        }
+      ],
+      "id": 17
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 2,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 3,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 4,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 5,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 6,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 7,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 8,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 9,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 10,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 11,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 12,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 13,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 14,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    },
+    {
+      "id": 15,
+      "fname": "John",
+      "lname": "Wick",
+      "email": "johnwick@loves.dog",
+      "gender": "Male",
+      "date": "2022-02-01",
+      "deparment": "1",
+      "phone": "1101000100"
+    }
+  ],
+  "department": [
+    {
+      "id": 1,
+      "dname": "Nuclear Physics"
+    },
+    {
+      "id": 2,
+      "dname": "Rocket Science"
+    },
+    {
+      "id": 3,
+      "dname": "Applied Mathematics"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<section class="container">
+    <button id='btnn' (click)="du()">click</button>
+    <div class="d-flex justify-between align-center">
+        <div>Users</div>
+        <div>
+            <label for="client">Client:</label>
+            <select name="clientname" id="clientName" (change)="selectChangeHandler($event)">
+                <option *ngFor="let c of clients">{{c.clientname}}</option>
+            </select>
+            
+            <button class="btn" (click)="onClickNewUser()" [disabled]="showForm">+ NEW USER</button>
+        </div>
+    </div>
+    <div *ngIf="showForm">
+        <app-users-form></app-users-form>
+    </div>
+    
+    <div class="table-container overflow-auto">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>FIRST NAME</th>
+                    <th>LAST NAME</th>
+                    <th>CLIENT NAME</th>
+                    <th>EMAIL</th>
+                    <th>OFFICE</th>
+                    <th>CONTACT NUMBER</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            
+            <tbody  cdkDropList (cdkDropListDropped)="onDrop($event)">
+                <tr *ngFor="let u of users | searchOptions:selectedOption; let i = index" cdkDrag cdkDragLockAxis="y">
+                    <td>{{u.id}}</td>
+                    <td>{{u.fname}}</td>
+                    <td>{{u.lname}}</td>
+                    <td>{{u.clients}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.offices}}</td>
+                    <td>{{u.contact}}</td>
+                
+                    <td>
+                        <button class="btn" (click)="deleteUser(u.id)">Delete</button>
+                        <button class="btn" (click)="edit(u.id)">Edit</button>
+                    </td>
+                </tr>
+                <tr *ngIf="length==0">
+                    <td>norecord</td>
+                </tr>
+            </tbody>
+            
+            
+        </table>
+    </div>
+    
+</section>
