@@ -13,6 +13,9 @@ const routes: Routes = [
   },
   {
     path: 'users', loadChildren: () => import('./feature/users/users.module').then(m => m.UsersModule)
+  },
+  {
+    path: 'todo', loadChildren: () => import('./feature/todo-list/todo-list.module').then(m => m.TodoListModule)
   }
 ];
 

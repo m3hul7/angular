@@ -8,7 +8,8 @@
                 <input type="text" id="searchTextId" [(ngModel)]="searchText" name="searchUser" placeholder="Search">
             </div>
             <div>
-                <button class="btn btn-add" routerLink="../user-form"> <span> + Add User</span></button>
+                <!-- routerLink="../user-form" -->
+                <button class="btn btn-add"  (click)="displayOverlay()"> <span> + Add User</span></button>
             </div>
         </div>
         <div class="table-style d-flex">

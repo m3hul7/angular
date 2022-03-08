@@ -10,6 +10,7 @@ import { DataManipulationService } from './service/data-manipulation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SerachByNamePipe } from './pipes/serach-by-name.pipe';
 import { DepPipePipe } from './pipes/dep-pipe.pipe';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 
 
@@ -27,7 +28,8 @@ import { DepPipePipe } from './pipes/dep-pipe.pipe';
     UserRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    OverlayModule
   ],
   exports:[
     UserListComponent

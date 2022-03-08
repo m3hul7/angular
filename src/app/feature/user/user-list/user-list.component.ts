@@ -1,6 +1,9 @@
+import { Overlay } from '@angular/cdk/overlay';
+import { ComponentPortal } from '@angular/cdk/portal';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataManipulationService } from '../service/data-manipulation.service';
+import { UserFormComponent } from '../user-form/user-form.component';
 import { Department, UserDetails } from './../models/model'
 
 
@@ -16,7 +19,7 @@ export class UserListComponent implements OnInit {
   departmentArray: Department[] = []
   checkarray:UserDetails[] = []
   boolstore?:boolean
-  constructor(private myService: DataManipulationService, private router: Router) {
+  constructor(private myService: DataManipulationService, private router: Router,  private overlay: Overlay) {
     this.getDeparment()
    }
 
@@ -24,6 +27,27 @@ export class UserListComponent implements OnInit {
     this.getDaata();
   }
   
+  displayOverlay() {
+    console.log("hi");
+    // const target = document.querySelector("#btnn") as HTMLElement;
+    const overlayRef = this.overlay.create({
+      positionStrategy : this.overlay.position()
+      // .flexibleConnectedTo(target)
+      // .withPositions([
+      //   {
+      //     originX: "start",
+      //     originY: "bottom",
+      //     overlayX: "start",
+      //     overlayY: "top"
+      //   }
+      // ])
+      .global()
+    .right()
+    .centerVertically()
+    });
+    const userProfilePortal = new ComponentPortal(UserFormComponent);
+    overlayRef.attach(userProfilePortal);
+  }
   // checkEmptyArray() {
   //   this.checkarray= this.pipe.transform(this.userList, this.searchText)
   //   if(this.checkarray.length == 0){

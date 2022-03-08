@@ -30,20 +30,23 @@ export class UsersListComponent implements OnInit{
     this.getUsersData()
     this.getClientsOptions()
   }
-  du() {
+  display() {
     console.log("hi");
     const target = document.querySelector("#btnn") as HTMLElement;
     const overlayRef = this.overlay.create({
       positionStrategy : this.overlay.position()
-      .flexibleConnectedTo(target)
-      .withPositions([
-        {
-          originX: "start",
-          originY: "bottom",
-          overlayX: "start",
-          overlayY: "top"
-        }
-      ])
+      // .flexibleConnectedTo(target)
+      // .withPositions([
+      //   {
+      //     originX: "start",
+      //     originY: "bottom",
+      //     overlayX: "start",
+      //     overlayY: "top"
+      //   }
+      // ])
+      .global()
+    .right()
+    .centerVertically()
     });
     const userProfilePortal = new ComponentPortal(UsersFormComponent);
     overlayRef.attach(userProfilePortal);

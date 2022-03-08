@@ -116,6 +116,15 @@
       "clients": "JBL",
       "offices": "Office2",
       "id": 11
+    },
+    {
+      "fname": "bruce ",
+      "lname": "lee ",
+      "email": "lee@org.com",
+      "contact": "9999999999",
+      "clients": "JBL",
+      "offices": "Office2",
+      "id": 12
     }
   ],
   "resumePost": [

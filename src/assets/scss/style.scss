@@ -1,0 +1,17 @@
+// Project base and component style import
+@import 'base/index';
+
+// Vendor base and component style import
+@import 'vendor/bootstrap-base';
+@import '../../../node_modules/bootstrap/';
+@import 'vendor/bootstrap-components';
+
+// Project Specific Components
+@import 'component/index';
+
+// Now other style import
+@import 'layout/index';
+
+@import 'utilities/index';
+
+@import '@angular/cdk/overlay-prebuilt.css';
