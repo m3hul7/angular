@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { SerachByNamePipe } from './pipes/serach-by-name.pipe';
 import { DepPipePipe } from './pipes/dep-pipe.pipe';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { FormModalComponent } from './form-modal/form-modal.component';
 
 
 
@@ -21,6 +22,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
     UserFormComponent,
     SerachByNamePipe,
     DepPipePipe,
+    FormModalComponent,
     
   ],
   imports: [

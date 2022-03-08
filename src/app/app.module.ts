@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { FeatureModule } from './feature/feature.module';
+import { DeletePopupComponent } from './shared/delete-popup/delete-popup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    DeletePopupComponent,
   ],
   imports: [
     BrowserModule,
