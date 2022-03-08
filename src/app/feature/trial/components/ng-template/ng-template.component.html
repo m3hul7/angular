@@ -1,0 +1,9 @@
+<p>ng-template works!</p>
+<ng-template #templateRef let-cellvalues="cellvalue" let-rowvalue="rowvalue">
+    {{ cellvalues}}
+  </ng-template>
+  
+  <ng-container >
+     <ng-template *ngTemplateOutlet="templateRef;context:{cellvalue :32,rowvalue: 3}">
+     </ng-template>
+  </ng-container>
