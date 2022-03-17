@@ -1,4 +1,16 @@
 {
+  "siblings": [
+    
+  ],
+  "user": [
+    {
+      "name": "capital",
+      "age": "21",
+      "gender": "Male",
+      "id": 1
+    }
+  ],
+  
   "clients": [
     {
       "id": 1,

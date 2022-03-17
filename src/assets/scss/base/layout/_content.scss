@@ -1,0 +1,22 @@
+// Main styles goes here
+.main {
+    .stats-aside {
+        scrollbar-color: #6969dd #e0e0e0;
+        scrollbar-width: thin;
+        scrollbar-gutter: stable;
+        flex: 0 0 300px;
+        .stats {
+            color:$white;
+            background-color: $primary;
+        }
+        .icon-wrapper {
+            color: $primary;
+            background-color: $white;
+            width: $icon-wrapper-width;
+            height: $icon-wrapper-height;
+        }
+        .stats-bg {
+            width: 60px;
+        }
+    }
+}
