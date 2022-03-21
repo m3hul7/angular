@@ -6,7 +6,7 @@
     transition: all .2s ease-in-out;
     #aisde-label {
         // overflow: visible;
-        color: white;
+        color: black;
         position: absolute;
         font-size: 1.5rem;
         right: -50px;
@@ -20,7 +20,6 @@
         overflow: hidden;
         &-name {
             color: white;
-            line-height: 70px;
             margin: 0;
             transition: all .4s ease-in-out;
         }
@@ -28,11 +27,11 @@
 
     .profile {
         overflow: hidden;
-         line-height: 5rem;
+        //  line-height: 5rem;
          transition: all .4s ease-in-out;
         &-figure {
-            margin: 0;
-            padding-left: 1rem;
+            // margin: 0;
+            // padding-left: 1rem;
             .img {
                 height: 35px;
                 width: 35px;
@@ -42,49 +41,37 @@
         }
         &-details {
             .profile-name {
-                color: white;
-                padding-right: 3rem;
+                color: white;   
             } 
-            .bx-dots-vertical-rounded {
-                margin-right: 1rem;
-            }
         } 
      }
 
     .nav-name {
-        padding: .5rem;
         color: #6c7293;
-        padding-left: 1rem;
     }
 
-    .nav {
+    .nav-item {
         overflow: hidden;
+        
         .nav-link {
-            width: 230px;
-            padding-left: 1rem;
+            
+            display: block;
+            text-decoration: none;
             color: #6c7293;
-            border-left: 3px solid transparent;
-            border-top-right-radius: 100px;
-            border-bottom-right-radius: 100px;
-            &-icon {
-                height: 25px;
-                width: 25px;
-                display: inline-block;
-                // border: 1px solid red;
-                border-radius: 50%;
-                text-align: center;
-                margin-right: 1.5rem;
-                background-color: rgba(245, 245, 245, 0.329);
-            }
-            &:hover {
+            border-left: 2px solid transparent;
+            transition: all .4s ease-in-out;
+            &:hover, &.active {
+               
                 color: white;
+                border-top-right-radius: 50px;
+                border-bottom-right-radius: 50px;
                 background-color: #0f1015;
             }
             &.active {
-                border-left: 3px solid #0090e7;
-                background-color: #0f1015;
+                border-left: 2px solid #0090e7;
             }
         }
+        
     }
 }
 .aside-input {
@@ -98,9 +85,6 @@
     }
     .profile-details {
         transform: translateX(100%);
-    }
-    .nav-link {
-        transform: translateX(2px);
     }
     .nav-name {
         display: none;

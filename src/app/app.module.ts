@@ -1,3 +1,4 @@
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,7 +18,8 @@ import { DeletePopupComponent } from './shared/delete-popup/delete-popup.compone
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    FeatureModule
+    FeatureModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

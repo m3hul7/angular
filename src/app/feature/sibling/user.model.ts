@@ -1,18 +1,18 @@
 /** User Model */
 export class User {
     public id: number;
-    public name: string;
-    public age: string;
-    public gender: string;
+    public fname: string;
+    public lname: string;
+    public email: string;
     constructor(
       id: number,
-      name: string,
-      age: string,
-      gender: string
+      firstname: string,
+      lastname: string,
+      email: string
     ) {
       this.id = id;
-      this.name = name;
-      this.age = age;
-      this.gender = gender;
+      this.fname = firstname;
+      this.lname = lastname;
+      this.email = email;
     }
   }

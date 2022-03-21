@@ -17,6 +17,7 @@ export class SiblingFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.editData();
   }
 
   buildUserDetailsForm() {
@@ -32,11 +33,20 @@ export class SiblingFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.service.addUser(this.detailForm.value);
-    console.log("onsubmit crashed", this.detailForm.value)
+    this.service.user$.next(this.detailForm.value);
+    console.log(this.detailForm.value);
+    this.resetForm();
   }
   resetForm() {
     this.detailForm.reset()
   }
+
+  editData(){
+    this.service.edituser$.subscribe(res =>{
+      this.detailForm.patchValue(res);
+      console.log(this.detailForm)
+    })
+  }
+
 
 }

@@ -1,6 +1,9 @@
 <!-- hero section starts -->
-<section id="hero" class="d-flex h-100">
 
+<section id="hero" class="d-flex h-100 position-relative">
+  <div class="example-box" cdkDrag>
+    To do list
+  </div>
   <!-- header starts -->
   <div >
     <app-sidebar></app-sidebar>
@@ -13,6 +16,7 @@
       <app-header></app-header>
     </div> -->
     <div class="overflow-auto p-5">
+      
       <router-outlet></router-outlet>
     </div>
   </div>

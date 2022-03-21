@@ -6,6 +6,7 @@ import { SiblingFormComponent } from './sibling-form/sibling-form.component';
 import { SiblingListComponent } from './sibling-list/sibling-list.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     SiblingRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DragDropModule
   ]
 })
 export class SiblingModule { }

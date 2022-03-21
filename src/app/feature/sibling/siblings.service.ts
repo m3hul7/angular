@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/internal/Subject';
-import { environment } from 'src/environments/environment';
 import { User } from './user.model';
 
 
@@ -11,22 +10,26 @@ import { User } from './user.model';
 })
 export class SiblingsService {
 
-  public apiLink:String;
-  public user = new Subject<User>();
-  private userlist:User[] = [];
+  public user$ = new Subject<User>();
+  public removeuser$ = new Subject<number>();
+  public edituser$ = new Subject<User>();
+
   
   constructor() {
-    this.apiLink = environment.baseURL;
+    // this.user$.subscribe((value) =>{ this.userlist.push(value);
+    // console.log(value);
+    // });
+    // this.removeuser$.subscribe((value) => {
+    //   this.userlist.splice(value, 1)
+    // })
+    // this.edituser$.subscribe((value) => {
+    //   this.saveData = this.userlist[value]
+    //   console.log(this.saveData)
+    // })
    }
 
-  addUser(value: User) {
-    this.userlist.push(
-      value
-    )
-    console.log("inside service over",this.userlist)
-  }
-  getUser():User[] {
-    return this.userlist;
-  }
-  
+  // getUser():User[] {
+  //   return this.userlist;
+  // }
+
 }
