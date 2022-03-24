@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '' , redirectTo:'mentor', pathMatch:'full'
+    path: '' , redirectTo:'mvp', pathMatch:'full'
   },
   {
     path: 'user', loadChildren: () => import('./feature/user/user.module').then(m => m.UserModule)
@@ -21,7 +21,8 @@ const routes: Routes = [
     path: 'trial', loadChildren: () => import('./feature/trial/trial.module').then(m => m.TrialModule)
   },
   { path: 'comm', loadChildren: () => import('./feature/sibling/sibling.module').then(m => m.SiblingModule) },
-  { path: 'mentor', loadChildren: () => import('./feature/mentor/mentor.module').then(m => m.MentorModule) }
+  // { path: 'mentor', loadChildren: () => import('./feature/mentor/mentor.module').then(m => m.MentorModule) }
+  { path: 'mvp', loadChildren: () => import('./feature/mvp-demo/mvp-demo.module').then(m => m.MvpDemoModule) }
 ];
 
 @NgModule({
