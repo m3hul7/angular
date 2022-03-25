@@ -1,9 +1,13 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './core/components/login/login.component';
 
 const routes: Routes = [
   {
-    path: '' , redirectTo:'mvp', pathMatch:'full'
+    path: '' , redirectTo:'login', pathMatch:'full'
+  },
+  {
+    path: 'login', component: LoginComponent
   },
   {
     path: 'user', loadChildren: () => import('./feature/user/user.module').then(m => m.UserModule)
