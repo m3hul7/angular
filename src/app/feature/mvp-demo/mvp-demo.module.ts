@@ -9,6 +9,7 @@ import { MvpClientformPresentationComponent } from './mvp-clientform-container/m
 import { MvpClientlistPresentationComponent } from './mvp-clientlist-container/mvp-clientlist-presentation/mvp-clientlist-presentation.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FilterListPresentationComponent } from './mvp-clientlist-container/mvp-clientlist-presentation/filter-list-presentation/filter-list-presentation.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -24,7 +25,8 @@ import { FilterListPresentationComponent } from './mvp-clientlist-container/mvp-
   imports: [
     CommonModule,
     MvpDemoRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class MvpDemoModule { }

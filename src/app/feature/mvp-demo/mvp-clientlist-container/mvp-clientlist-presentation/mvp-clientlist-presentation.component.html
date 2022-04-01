@@ -20,15 +20,16 @@
         </tr>
       </thead>
       <tbody>
-          <tr class="align-middle" *ngFor="let c of mvpclientlist">
-              <td class="col">{{c.id}}</td>
-              <td class="col">{{c.name}}</td>
-              <td class="col">{{c.age}}</td>
-              <td class="col">{{c.gender}}</td>
-              <td class="col">
-                  <button class="btn btn-success" (click)="onEdit(c.id)">Edit</button>
-                  <button class="btn btn-danger ms-2" (click)="onDelete(c.id)">Delete</button>
-              </td>
-          </tr>
+        <tr class="align-middle" *ngFor="let item of newList, let i = index">
+            <td class="col">{{ i + 1}}</td>
+            <td class="col">{{item.name}}</td>
+            <td class="col">{{item.age}}</td>
+            <td class="col">{{item.gender}}</td>
+            <td class="col">
+                <button class="btn btn-primary" (click)="onEdit(item.id)">Edit</button>
+                <button class="btn border-danger ms-2" (click)="onDelete(item.id)"><span class="text-danger ">Delete</span></button>
+            </td>
+        </tr>
       </tbody>
 </table>
+<app-pagination [items]="mvpclientlist" [itemsPerPage]="8" (changePage)="changePage($event)" class="d-flex justify-content-center align-items-center"></app-pagination>

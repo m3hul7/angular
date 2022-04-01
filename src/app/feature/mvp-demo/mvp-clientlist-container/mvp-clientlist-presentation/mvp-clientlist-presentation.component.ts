@@ -1,6 +1,6 @@
 import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { mvpclient } from '../../mvp-demo-model';
 import { MvpClientlistPresenterService } from '../mvp-clientlist-presenter/mvp-clientlist-presenter.service';
@@ -16,19 +16,24 @@ export class MvpClientlistPresentationComponent implements OnInit {
   @Input() public set mvpclientlist(value: mvpclient[] | null) {
     if (value) {
       this._mvpList = value;
+      this.newList = value
     }
   }
-  public get mvpclientlist(): mvpclient[] | null {
+  public get mvpclientlist(): mvpclient[] {
     return this._mvpList;
   }
   @Output() public delete: EventEmitter<number>;
-  constructor(private mvpPresenter: MvpClientlistPresenterService, private router: Router, private overlay: Overlay) {
+  constructor(private mvpPresenter: MvpClientlistPresenterService, private router: Router, private overlay: Overlay,private cdr:ChangeDetectorRef) {
     this.delete = new EventEmitter();
+ 
   }
+  public newList : mvpclient[];
   private _mvpList: mvpclient[];
+  public _mvpclientlist: mvpclient[];
   ngOnInit(): void {
     this.mvpPresenter.delete$.subscribe
       ((res: number) => this.delete.emit(res))
+      this.cdr.detectChanges();
   }
   onDelete(id: number) {
     this.mvpPresenter.ondelete(id);
@@ -37,6 +42,7 @@ export class MvpClientlistPresentationComponent implements OnInit {
     this.router.navigateByUrl(`mvp/edit/${id}`)
   }
   filter(){
+    this._mvpList = this.newList
     this.openOverlay();
   }
   openOverlay(){
@@ -61,16 +67,30 @@ export class MvpClientlistPresentationComponent implements OnInit {
     });
   }
 
-  filterData(fiters:any){
-    if(!(fiters.age === "")) {
+  filterData(filters:any){
+    if(!(filters.age === "")) {
       this._mvpList = this._mvpList.filter((item)=>{
-        return item.age == fiters.age
+        return item.age == filters.age
        })
     }
-    if(!(fiters.name === "")) {
+    if (!(filters.name === "")) {
       this._mvpList = this._mvpList.filter((item) => {
-        return item.name.toLowerCase().match(fiters.name.toLowerCase())
+        // return item.name.toLowerCase().match(filters.name.toLowerCase())
+        return item.name == filters.name 
+      })
+    }
+    if (!(filters.gender === "")) {
+      this._mvpList = this._mvpList.filter((item)=>{
+        return item.gender == filters.gender
       })
     }
   }
+
+
+  changePage(userList: mvpclient[]) {    
+    this.newList = userList;
+    this.cdr.detectChanges();
+     console.log(this.newList);
+  } 
+
 }

@@ -25,8 +25,11 @@ const routes: Routes = [
     path: 'trial', loadChildren: () => import('./feature/trial/trial.module').then(m => m.TrialModule)
   },
   { path: 'comm', loadChildren: () => import('./feature/sibling/sibling.module').then(m => m.SiblingModule) },
+
+  { path: 'comma', loadChildren: () => import('./feature/mvpmodule/mvpmodule.module').then(m => m.MvpmoduleModule) },
   // { path: 'mentor', loadChildren: () => import('./feature/mentor/mentor.module').then(m => m.MentorModule) }
-  { path: 'mvp', loadChildren: () => import('./feature/mvp-demo/mvp-demo.module').then(m => m.MvpDemoModule) }
+  { path: 'mvp', loadChildren: () => import('./feature/mvp-demo/mvp-demo.module').then(m => m.MvpDemoModule) },
+  { path: 'file-upload', loadChildren: () => import('./feature/file/file.module').then(m => m.FileModule) }
 ];
 
 @NgModule({
