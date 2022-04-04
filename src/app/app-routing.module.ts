@@ -4,7 +4,7 @@ import { LoginComponent } from './core/components/login/login.component';
 
 const routes: Routes = [
   {
-    path: '' , redirectTo:'login', pathMatch:'full'
+    path: '' , redirectTo:'file', pathMatch:'full'
   },
   {
     path: 'login', component: LoginComponent
@@ -29,7 +29,8 @@ const routes: Routes = [
   { path: 'comma', loadChildren: () => import('./feature/mvpmodule/mvpmodule.module').then(m => m.MvpmoduleModule) },
   // { path: 'mentor', loadChildren: () => import('./feature/mentor/mentor.module').then(m => m.MentorModule) }
   { path: 'mvp', loadChildren: () => import('./feature/mvp-demo/mvp-demo.module').then(m => m.MvpDemoModule) },
-  { path: 'file-upload', loadChildren: () => import('./feature/file/file.module').then(m => m.FileModule) }
+  { path: 'file-upload', loadChildren: () => import('./feature/file/file.module').then(m => m.FileModule) },
+  { path: 'file', loadChildren: () => import('./feature/dnd-file-upload/dnd-file-upload.module').then(m => m.DndFileUploadModule) }
 ];
 
 @NgModule({
