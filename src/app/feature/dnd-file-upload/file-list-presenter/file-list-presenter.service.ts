@@ -20,6 +20,7 @@ export class FileListPresenterService {
   public showFile(content: string, type: string) {
     let based64= content.split(',')[1];
     const byteCharacters = atob(based64);
+    console.log(byteCharacters);
     const byteNumbers = new Array(byteCharacters.length);
     for (let i = 0; i < byteCharacters.length; i++){
       byteNumbers[i] = byteCharacters.charCodeAt(i);
