@@ -4,7 +4,7 @@ import { LoginComponent } from './core/components/login/login.component';
 
 const routes: Routes = [
   {
-    path: '' , redirectTo:'file', pathMatch:'full'
+    path: '' , redirectTo:'trial', pathMatch:'full'
   },
   {
     path: 'login', component: LoginComponent
