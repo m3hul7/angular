@@ -4,7 +4,7 @@ import { LoginComponent } from './core/components/login/login.component';
 
 const routes: Routes = [
   {
-    path: '' , redirectTo:'trial', pathMatch:'full'
+    path: '' , redirectTo:'progressform', pathMatch:'full'
   },
   {
     path: 'login', component: LoginComponent
@@ -30,7 +30,9 @@ const routes: Routes = [
   // { path: 'mentor', loadChildren: () => import('./feature/mentor/mentor.module').then(m => m.MentorModule) }
   { path: 'mvp', loadChildren: () => import('./feature/mvp-demo/mvp-demo.module').then(m => m.MvpDemoModule) },
   { path: 'file-upload', loadChildren: () => import('./feature/file/file.module').then(m => m.FileModule) },
-  { path: 'file', loadChildren: () => import('./feature/dnd-file-upload/dnd-file-upload.module').then(m => m.DndFileUploadModule) }
+  { path: 'file', loadChildren: () => import('./feature/dnd-file-upload/dnd-file-upload.module').then(m => m.DndFileUploadModule) },
+  { path: 'progressform', loadChildren: () => import('./feature/progress-form/progress-form.module').then(m => m.ProgressFormModule) },
+  { path: 'pdfprint', loadChildren: () => import('./feature/pdf-print/pdf-print.module').then(m => m.PdfPrintModule) }
 ];
 
 @NgModule({

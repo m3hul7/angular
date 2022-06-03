@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PaginationComponent } from './pagination/pagination.component';
 import { FiledropzoneDirective } from './Directives/filedropzone.directive';
 import { PhoneMaskingDirective } from './Directives/phone-masking.directive';
+import { ProgressbarComponent } from './progressbar/progressbar.component';
 
 
 
@@ -11,7 +12,8 @@ import { PhoneMaskingDirective } from './Directives/phone-masking.directive';
   declarations: [
     PaginationComponent,
     FiledropzoneDirective,
-    PhoneMaskingDirective
+    PhoneMaskingDirective,
+    ProgressbarComponent
   ],
   imports: [
     CommonModule
@@ -19,7 +21,10 @@ import { PhoneMaskingDirective } from './Directives/phone-masking.directive';
   exports: [
     PaginationComponent,
     FiledropzoneDirective,
-    PhoneMaskingDirective
+    PhoneMaskingDirective,
+    ProgressbarComponent,
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

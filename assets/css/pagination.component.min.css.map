@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,EAAE,AAAC,CACC,MAAM,CAAE,OAAO,CAClB",
+    "sources": [
+        "../../src/app/shared/pagination/pagination.component.scss"
+    ],
+    "names": [],
+    "file": "pagination.component.min.css"
+}

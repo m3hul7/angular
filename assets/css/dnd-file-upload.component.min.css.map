@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/feature/dnd-file-upload/dnd-file-upload.component.scss"
+    ],
+    "names": [],
+    "file": "dnd-file-upload.component.min.css"
+}

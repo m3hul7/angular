@@ -2,6 +2,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgModule } from '@angular/core';
 // import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +20,8 @@ import { DeletePopupComponent } from './shared/delete-popup/delete-popup.compone
     AppRoutingModule,
     CoreModule,
     FeatureModule,
-    DragDropModule
+    DragDropModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/feature/mvpmodule/empolyee_list_container/employee-list-container.component.scss"
+    ],
+    "names": [],
+    "file": "employee-list-container.component.min.css"
+}

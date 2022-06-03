@@ -1,0 +1,34 @@
+<div class="register-form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+  
+        <div class="form-group">
+            <label>Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            />
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+          </div>
+  
+      <div class="form-group">
+        <button type="button" class="btn btn-warning" (click)="back()" routerLink="../formone">Previous</button>
+        <button type="submit" class="btn btn-primary" >Next</button>
+        <button
+          type="button"
+          (click)="onReset()"
+          class="btn btn-warning float-right"
+        >
+          Reset
+        </button>
+        
+      </div>
+    </form>
+  </div>
+
+
+<!-- <button type="button" class="btn btn-light" (click)="update()" routerLink="../formthree">Next</button> -->

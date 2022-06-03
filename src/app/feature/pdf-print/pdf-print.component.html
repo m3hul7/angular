@@ -1,0 +1,6 @@
+<button type="button" class="btn btn-dark" (click)="printPageArea('printableArea')">Dark</button>
+<div class="d-flex">
+    <div class="flex-grow-1 overflow-hidden" >
+        <iframe class="frame h-100"  id="printableArea" [src]="safeUrl"></iframe>
+    </div>
+</div>

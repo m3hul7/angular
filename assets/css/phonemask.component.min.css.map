@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/feature/trial/components/phonemask/phonemask.component.scss"
+    ],
+    "names": [],
+    "file": "phonemask.component.min.css"
+}

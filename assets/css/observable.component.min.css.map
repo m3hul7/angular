@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,AAAA,CAAC,QAAQ,CAAE,KAAK,CACzB,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,IAAI,CACZ,GAAG,CAAE,CAAC,CAAuB",
+    "sources": [
+        "../../src/app/feature/trial/components/observable/observable.component.scss"
+    ],
+    "names": [],
+    "file": "observable.component.min.css"
+}

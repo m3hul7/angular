@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../../src/app/feature/mvp-demo/mvp-clientlist-container/mvp-clientlist-presentation/filter-list-presentation/filter-list-presentation.component.scss"
+    ],
+    "names": [],
+    "file": "filter-list-presentation.component.min.css"
+}

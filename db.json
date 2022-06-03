@@ -1,4 +1,21 @@
 {
+  "chart": [
+    ["Mon", 6],
+    ["Tue", 10],
+    ["Wed", 1],
+    ["Thu", 3],
+    ["Fri", 5],
+    ["Sat", 2],
+    ["Sun", 1],
+    ["Mon", 16],
+    ["Tue", 110],
+    ["Wed", 11],
+    ["Thu", 13],
+    ["Fri", 15],
+    ["Sat", 12],
+    ["Sun", 11]
+  ],
+
   "files": [
     {
       "name": "batman_superhero_dark_knight_rises.jpg",
