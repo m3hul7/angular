@@ -4,7 +4,7 @@ import { LoginComponent } from './core/components/login/login.component';
 
 const routes: Routes = [
   {
-    path: '' , redirectTo:'progressform', pathMatch:'full'
+    path: '' , redirectTo:'pdfprint', pathMatch:'full'
   },
   {
     path: 'login', component: LoginComponent

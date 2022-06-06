@@ -44,21 +44,66 @@ export class PdfPrintComponent implements OnInit {
 				URL.createObjectURL(file),
 			);
       
-        this.temp = this.sanitizer.bypassSecurityTrustHtml(URL.createObjectURL(file)) as string;
+        this.temp = URL.createObjectURL(file);
 		// if(this.detectMimeType(this._certificate) == "application/pdf")	{
 		// 	this.isPDF = true;
 		// }
   }
 
+  public print() {
+    const newWindow = window.open('', '', '');
+    // const newWindow = window.open('', '', 'width=100, height=100');
+    if(newWindow){
+                    
+      // const document = newWindow.document.open();
+      // document.close();
+      newWindow.moveTo(0, 0);
+      newWindow.resizeTo(window.screen.width, window.screen.height);
+      const contentType = 'application/pdf';
+      // const b64Data = base64Data;
+      // const blob = this.b64toBlob(b64Data, contentType);
+      // const blobUrl = URL.createObjectURL(blob);
+
+      newWindow.document.write(`<iframe id="pdfDocument"
+      src="${this.temp}" 
+      width="100%"
+      height="100%"
+      frameBorder="0" ></iframe>`);
+      // start modify
+      newWindow.document.close();
+      newWindow.focus();
+      setTimeout(()=> {
+        newWindow.print()
+      },1000);
+      // end modify
+      // const docs = document.getElementById('pdfDocument');
+      // var pdfDocument = eval("(docs.contentWindow || docs.contentDocument)");
+      // pdfDocument.contentWindow.print();
+      // setTimeout(() => {
+      //   pdfDocument.contentWindow.print();
+      // }, 1000)
+    }
+  }
+
   public printPageArea(areaID:string) {
-    let printContent = document.getElementById(areaID);
-    console.log(printContent!.innerHTML);
-    
+    // let printContent = document.getElementById(areaID);
+    // console.log(printContent!.innerHTML);
+    // const contentType = 'application/pdf';
     let WinPrint = window.open('', '', '');
-    WinPrint?.document.write(this.temp);
+    WinPrint?.document.write(`<iframe id="pdfDocument"
+    src="${this.temp}" 
+    width="100%"
+    height="100%"
+    frameBorder="0" ></iframe>`);
     WinPrint?.document.close();
-    WinPrint?.focus();
-    WinPrint?.print();
+    // WinPrint?.focus();
+    // WinPrint?.print();
+    const docs = document.getElementById('pdfDocument');
+    var Iframe = eval("(docs.contentWindow || docs.contentDocument)");
+    Iframe.contentWindow.print();
+    setTimeout(() => {
+      Iframe.contentDocument.print();
+    }, 1000)
     // WinPrint?.close();
   }
 
