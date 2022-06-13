@@ -32,7 +32,7 @@ const routes: Routes = [
   { path: 'file-upload', loadChildren: () => import('./feature/file/file.module').then(m => m.FileModule) },
   { path: 'file', loadChildren: () => import('./feature/dnd-file-upload/dnd-file-upload.module').then(m => m.DndFileUploadModule) },
   { path: 'progressform', loadChildren: () => import('./feature/progress-form/progress-form.module').then(m => m.ProgressFormModule) },
-  { path: 'pdfprint', loadChildren: () => import('./feature/pdf-print/pdf-print.module').then(m => m.PdfPrintModule) }
+{ path: 'pdfprint', loadChildren: () => import('./feature/pdf-print/pdf-print.module').then(m => m.PdfPrintModule) }
 ];
 
 @NgModule({

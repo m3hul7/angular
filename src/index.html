@@ -8,6 +8,32 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> -->
   <link rel="stylesheet" href="assets/icons/style.css">
+  <script type="text/javascript">
+    function closePrint () {
+      document.body.removeChild(this.__container__);
+    }
+    
+    function setPrint () {
+      this.contentWindow.__container__ = this;
+      this.contentWindow.onbeforeunload = closePrint;
+      this.contentWindow.onafterprint = closePrint;
+      this.contentWindow.focus(); // Required for IE
+      this.contentWindow.print();
+    }
+    
+    function printPage (sURL) {
+      var oHideFrame = document.createElement("iframe");
+      oHideFrame.onload = setPrint;
+      oHideFrame.style.position = "fixed";
+      oHideFrame.style.right = "0";
+      oHideFrame.style.bottom = "0";
+      oHideFrame.style.width = "0";
+      oHideFrame.style.height = "0";
+      oHideFrame.style.border = "0";
+      oHideFrame.src = sURL;
+      document.body.appendChild(oHideFrame);
+    }
+    </script>
 </head>
 <body>
   <app-root></app-root>

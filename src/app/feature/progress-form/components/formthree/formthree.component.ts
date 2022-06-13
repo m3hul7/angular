@@ -48,6 +48,13 @@ export class FormthreeComponent implements OnInit {
     }
     else {
       this._bool.$progressbool.next(100);
+      console.log(this.form.value);
+      
+      this._bool.localSave(this.form.value)
+      this._bool.saveUser().subscribe((res) => {
+        console.log("success");
+        
+      })
       this.routers.navigate(['/progressform/complete']);
     }
 

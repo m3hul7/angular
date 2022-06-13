@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import * as printJS from 'print-js';
+
 
 @Component({
   selector: 'app-pdf-print',
@@ -20,6 +22,8 @@ export class PdfPrintComponent implements OnInit {
 		iVBORw0KGgo: "image/png",
 		"/9j/": "image/jpg"
 	};
+  // contentWindow: any;
+  // __container__: any;
   constructor(private sanitizer: DomSanitizer) {
     this.file = '';
    }
@@ -30,6 +34,7 @@ export class PdfPrintComponent implements OnInit {
 		return "image/png";
 	}
   public temp:string;
+  public filepdf: File;
   ngOnInit(): void {
     const byteCharacters = atob(this.basesixfour);
 		const byteNumbers = new Array(byteCharacters.length);
@@ -43,68 +48,246 @@ export class PdfPrintComponent implements OnInit {
 			this.sanitizer.bypassSecurityTrustResourceUrl(
 				URL.createObjectURL(file),
 			);
+      this.filepdf = new File([file], "uploaded_file.pdf", { type: "application/pdf", lastModified: Date.now() });
       
         this.temp = URL.createObjectURL(file);
 		// if(this.detectMimeType(this._certificate) == "application/pdf")	{
 		// 	this.isPDF = true;
 		// }
+    
+  }
+  public chromeprint(){
+
+  }
+  public params = {
+    printable: null,
+    fallbackPrintable: null,
+    type: 'pdf',
+    header: null,
+    headerStyle: 'font-weight: 300;',
+    maxWidth: 800,
+    properties: null,
+    gridHeaderStyle: 'font-weight: bold; padding: 5px; border: 1px solid #dddddd;',
+    gridStyle: 'border: 1px solid lightgray; margin-bottom: -1px;',
+    showModal: false,
+    onError: (error: any) => { throw error },
+    onLoadingStart: null,
+    onLoadingEnd: null,
+    onPrintDialogClose: () => {},
+    onIncompatibleBrowser: () => {},
+    modalMessage: 'Retrieving Document...',
+    frameId: 'printJS',
+    printableElement: null,
+    documentTitle: 'Document',
+    targetStyle: ['clear', 'display', 'width', 'min-width', 'height', 'min-height', 'max-height'],
+    targetStyles: ['border', 'box', 'break', 'text-decoration'],
+    ignoreElements: [],
+    repeatTableHeader: true,
+    css: null,
+    style: null,
+    scanStyles: true,
+    base64: false,
+
+    // Deprecated
+    onPdfOpen: null,
+    font: 'TimesNewRoman',
+    font_size: '12pt',
+    honorMarginPadding: true,
+    honorColor: false,
+    imageStyle: 'max-width: 100%;'
   }
 
-  public print() {
-    const newWindow = window.open('', '', '');
-    // const newWindow = window.open('', '', 'width=100, height=100');
-    if(newWindow){
-                    
-      // const document = newWindow.document.open();
-      // document.close();
-      newWindow.moveTo(0, 0);
-      newWindow.resizeTo(window.screen.width, window.screen.height);
-      const contentType = 'application/pdf';
-      // const b64Data = base64Data;
-      // const blob = this.b64toBlob(b64Data, contentType);
-      // const blobUrl = URL.createObjectURL(blob);
+//   public straped() {
+//     const printFrame = document.createElement('iframe')
+//     var InstallTrigger: any;
+//     const Browser = {
+//       // Firefox 1.0+
+//       isFirefox: () => {
+//         return typeof InstallTrigger !== 'undefined'
+//       },
+      
+//     }
+//     if (Browser.isFirefox()) {
+//       // Set the iframe to be is visible on the page (guaranteed by fixed position) but hidden using opacity 0, because
+//       // this works in Firefox. The height needs to be sufficient for some part of the document other than the PDF
+//       // viewer's toolbar to be visible in the page
+//       printFrame.setAttribute('style', 'width: 1px; height: 100px; position: fixed; left: 0; top: 0; opacity: 0; border-width: 0; margin: 0; padding: 0')
+//     } else {
+//       // Hide the iframe in other browsers
+//       printFrame.setAttribute('style', 'visibility: hidden; height: 0; width: 0; position: absolute; border: 0')
+//     }
+//     printFrame.setAttribute('id', this.params.frameId)
+//     printFrame.setAttribute('src', this.temp)
+//     document.getElementsByTagName('body')[0].appendChild(printFrame)
+//     const iframeElement = document.getElementById(this.params.frameId) as HTMLIFrameElement
+//     iframeElement.onload = () => {
+//       if (this.params.type === 'pdf') {
+//         // Add a delay for Firefox. In my tests, 1000ms was sufficient but 100ms was not
+//         if (Browser.isFirefox()) {
+//           setTimeout(() => performPrint(iframeElement, this.params), 1000)
+//         } else {
+//           performPrint(iframeElement, this.params)
+//         }
+//         return
+//       }
+//   }
+// }
+// public performPrint(iframeElement, params) {
+//   try {
+//     iframeElement.focus()
 
-      newWindow.document.write(`<iframe id="pdfDocument"
-      src="${this.temp}" 
-      width="100%"
-      height="100%"
-      frameBorder="0" ></iframe>`);
-      // start modify
-      newWindow.document.close();
-      newWindow.focus();
-      setTimeout(()=> {
-        newWindow.print()
-      },1000);
-      // end modify
-      // const docs = document.getElementById('pdfDocument');
-      // var pdfDocument = eval("(docs.contentWindow || docs.contentDocument)");
-      // pdfDocument.contentWindow.print();
-      // setTimeout(() => {
-      //   pdfDocument.contentWindow.print();
-      // }, 1000)
+//     // If Edge or IE, try catch with execCommand
+//     if (Browser.isEdge() || Browser.isIE()) {
+//       try {
+//         iframeElement.contentWindow.document.execCommand('print', false, null)
+//       } catch (e) {
+//         iframeElement.contentWindow.print()
+//       }
+//     } else {
+//       // Other browsers
+//       iframeElement.contentWindow.print()
+//     }
+//   } catch (error) {
+//     params.onError(error)
+//   } finally {
+//     if (Browser.isFirefox()) {
+//       // Move the iframe element off-screen and make it invisible
+//       iframeElement.style.visibility = 'hidden'
+//       iframeElement.style.left = '-1px'
+//     }
+
+//     cleanUp(params)
+//   }
+// }
+  
+  
+  public printjs() {
+    var isChrome = navigator.userAgent.indexOf("Chrome") != -1
+    const printFrame = document.createElement('iframe')
+    printFrame.setAttribute('style', 'visibility: hidden; height: 0; width: 0; position: absolute; border: 0')
+    printFrame.setAttribute('id', 'print')
+    const bytesArray = Uint8Array.from(atob(this.basesixfour), c => c.charCodeAt(0))
+    
+    let localPdf = new window.Blob([bytesArray], {
+      type: 'application/pdf'
+    })
+    var localPdff = window.URL.createObjectURL(localPdf)
+    
+    printFrame.setAttribute('src', localPdff)
+    document.getElementsByTagName('body')[0].appendChild(printFrame)
+   
+    const iframeElement = document.getElementById('print') as HTMLIFrameElement
+    
+    iframeElement.onload = () => {
+      setTimeout(() => {
+        iframeElement.focus()
+        if(isChrome) iframeElement.contentWindow?.document.execCommand('print', false, '')
+        else
+        iframeElement.contentWindow?.print()
+      }, 1000)
     }
   }
 
-  public printPageArea(areaID:string) {
-    // let printContent = document.getElementById(areaID);
-    // console.log(printContent!.innerHTML);
-    // const contentType = 'application/pdf';
-    let WinPrint = window.open('', '', '');
-    WinPrint?.document.write(`<iframe id="pdfDocument"
-    src="${this.temp}" 
-    width="100%"
-    height="100%"
-    frameBorder="0" ></iframe>`);
-    WinPrint?.document.close();
-    // WinPrint?.focus();
-    // WinPrint?.print();
-    const docs = document.getElementById('pdfDocument');
-    var Iframe = eval("(docs.contentWindow || docs.contentDocument)");
-    Iframe.contentWindow.print();
-    setTimeout(() => {
-      Iframe.contentDocument.print();
-    }, 1000)
-    // WinPrint?.close();
+  public printpdf() {
+    var div = document.getElementById('pdfDiv');
+  //we make a new iframe every time we print or the DOM manipulation below breaks
+  div!.innerHTML = '<iframe width="0" height="0" id="pdfFrame"></iframe>';
+  var frame = document.getElementById('pdfFrame') as HTMLIFrameElement;
+  frame.contentWindow?.document.open();
+  //add a <body> to the iframe so we can add a form to it below
+  frame.contentWindow?.document.write(`<iframe id="pdfDocument"
+  src="${this.temp}" 
+  width="100%"
+  height="100%"
+  frameBorder="0" ></iframe>`);
+  frame.contentWindow?.document.close();
+  // var ifWin = frame.contentWindow || frame;
+  // frame.focus();
+  // ifWin.print;
+
+  frame.onload = function ()
+    {
+    frame.contentWindow?.focus();
+    frame.contentWindow?.document.execCommand('print', false, '')
+
+    }
   }
+  
+  
+  // public printPage() {
+  //   window.print();
+  // }
+
+  // public cookie() {
+  //   var div = document.getElementById('pdfDiv');
+  // //we make a new iframe every time we print or the DOM manipulation below breaks
+  // div!.innerHTML = `<iframe width="0" height="0" id="pdfFrame"></iframe>`;
+  // var frame:HTMLIFrameElement = document.getElementById('pdfFrame') as HTMLIFrameElement;
+  
+  // frame.contentWindow?.document.open();
+  // //add a <body> to the iframe so we can add a form to it below
+  // frame.contentWindow?.document.write(`<iframe id="pdfDocument"
+  // src="${this.temp}" 
+  // width="100%"
+  // height="100%"
+  // frameBorder="0" ></iframe>`);
+  // frame.contentWindow?.document.close();
+  // frame.onload = function ()
+  // {
+  //   frame.contentWindow?.focus();
+  //   frame.contentWindow?.print();
+  // };
+  // }
+
+  // // not feasible since append sucks
+  // public printtoday() {
+  //   var iframe = document.createElement("iframe");
+  //   document.body.appendChild(iframe);
+  //   iframe.contentWindow?.document.write(`<iframe id="pdfDocument"
+  //   src="${this.temp}" 
+  //   width="100%"
+  //   height="100%"
+  //   frameBorder="0"></iframe>`);
+  //   iframe.contentWindow?.document.close();
+  //   iframe.onload = function () {
+  //     iframe.contentWindow?.focus();
+  //     iframe.contentWindow?.print();
+  //   }
+  // }
+
+  // public printt() {
+  //   // debugger
+  //   const newWindow = window.open('', '', '');
+  //   // const newWindow = window.open('', '', 'width=100, height=100');
+  //   if(newWindow){
+  //     newWindow.document.write(`<iframe id="pdfDocument"
+  //     src="${this.temp}" 
+  //     width="100%"
+  //     height="100%"
+  //     frameBorder="0" ></iframe>`);
+  //     newWindow.document.close();
+  //     newWindow.onload = function () {
+  //       newWindow.focus();
+  //       newWindow.print();
+  //     }
+  //   }
+  // }
+
+  // public printPageArea(areaID:string) {
+  //   var printContent = document.getElementById(areaID);
+  //   var WinPrint = window.open('', '', '');
+  //   console.log();
+    
+  //   WinPrint?.document.write(printContent?.innerHTML as string);
+  //   WinPrint?.document.close();
+  //   WinPrint!.onload = function () {
+  //     WinPrint?.focus();
+  //     WinPrint?.print();
+  //     // setTimeout(()=> {
+  //     //   WinPrint?.focus();
+  //     //   WinPrint?.print();
+  //     // },10000);
+  //   }    // WinPrint.close();
+  // }
 
 }

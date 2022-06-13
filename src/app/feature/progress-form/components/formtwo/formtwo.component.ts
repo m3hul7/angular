@@ -14,7 +14,7 @@ export class FormtwoComponent implements OnInit {
 
   public form: FormGroup;
   public submitted = false;
-
+  public temparray:any = [];
   constructor(private _bool:ProgressUpdateService,private formBuilder: FormBuilder, private routers:Router) { }
 
   ngOnInit(): void {
@@ -28,6 +28,9 @@ export class FormtwoComponent implements OnInit {
       //   validators: [Validation.match('password', 'confirmPassword')]
       // }
     );
+    this._bool.$progressbool.subscribe((val) => {
+      console.log(val);
+    })
   }
 
 
@@ -43,6 +46,9 @@ export class FormtwoComponent implements OnInit {
     }
     else {
       this._bool.$progressbool.next(66.66);
+      console.log(this.form.value);
+      
+      this._bool.localSave(this.form.value)
       this.routers.navigate(['/progressform/formthree']);
     }
 
@@ -56,6 +62,7 @@ export class FormtwoComponent implements OnInit {
 
   public update() {
     this._bool.$progressbool.next(66.66);
+    this.routers.navigate(['/progressform/formthree']);
   }
 
   public back() {

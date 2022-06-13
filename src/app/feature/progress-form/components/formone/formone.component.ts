@@ -13,6 +13,7 @@ export class FormoneComponent implements OnInit {
   
   public form: FormGroup;
   public submitted = false;
+  temparray: any= [];
 
 
   constructor(private _bool : ProgressUpdateService, private formBuilder: FormBuilder, private routers:Router) {
@@ -36,6 +37,15 @@ export class FormoneComponent implements OnInit {
       //   validators: [Validation.match('password', 'confirmPassword')]
       // }
     );
+    this._bool.$progressbool.subscribe((val) => {
+      console.log(val);
+      
+        let obj = this._bool.fetchSave()
+        console.log(obj )
+        // this.form.setValue(obj[0])
+      
+      
+    })
   }
 
 
@@ -51,6 +61,9 @@ export class FormoneComponent implements OnInit {
     }
     else {
       this._bool.$progressbool.next(33.33);
+      console.log(this.form.value);
+      
+      this._bool.localSave(this.form.value)
       this.routers.navigate(['/progressform/formtwo']);
     }
 
@@ -64,5 +77,6 @@ export class FormoneComponent implements OnInit {
 
   public update() {
     this._bool.$progressbool.next(33.33);
+    this.routers.navigate(['/progressform/formtwo']);
   }
 }
