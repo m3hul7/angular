@@ -71,8 +71,8 @@ export class PdfPrintComponent implements OnInit {
     gridStyle: 'border: 1px solid lightgray; margin-bottom: -1px;',
     showModal: false,
     onError: (error: any) => { throw error },
-    onLoadingStart: null,
-    onLoadingEnd: null,
+    onLoadingStart: () => {},
+    onLoadingEnd: () => {},
     onPrintDialogClose: () => {},
     onIncompatibleBrowser: () => {},
     modalMessage: 'Retrieving Document...',
@@ -160,13 +160,16 @@ export class PdfPrintComponent implements OnInit {
 //   }
 // }
   
-  
-  public printjs() {
+
+  public printjs(basesixfour:string) {
     var isChrome = navigator.userAgent.indexOf("Chrome") != -1
+    const usedFrame = document.getElementById('print')
+
+    if (usedFrame) usedFrame.parentNode?.removeChild(usedFrame)
     const printFrame = document.createElement('iframe')
     printFrame.setAttribute('style', 'visibility: hidden; height: 0; width: 0; position: absolute; border: 0')
     printFrame.setAttribute('id', 'print')
-    const bytesArray = Uint8Array.from(atob(this.basesixfour), c => c.charCodeAt(0))
+    const bytesArray = Uint8Array.from(atob(basesixfour), c => c.charCodeAt(0))
     
     let localPdf = new window.Blob([bytesArray], {
       type: 'application/pdf'
@@ -290,4 +293,8 @@ export class PdfPrintComponent implements OnInit {
   //   }    // WinPrint.close();
   // }
 
+}
+
+function onLoadingEnd() {
+  throw new Error('Function not implemented.');
 }
